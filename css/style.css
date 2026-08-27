@@ -973,6 +973,26 @@ h3 { font-size: 1.3rem; }
   box-shadow: none;
 }
 
+.media-banner {
+  aspect-ratio: 21/7;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+.media-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 720px) {
+  .media-banner {
+    aspect-ratio: 4/3;
+  }
+}
+
 /* Products */
 .product-list li {
   padding: 13px 0 13px 30px;
