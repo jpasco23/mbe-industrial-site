@@ -276,6 +276,10 @@ h3 { font-size: 1.25rem; }
   z-index: 1;
 }
 
+.hero h1 {
+  color: var(--white);
+}
+
 .hero p.lead {
   color: var(--steel-light);
   font-size: 1.1rem;
@@ -368,6 +372,10 @@ h3 { font-size: 1.25rem; }
   background: var(--navy);
   color: var(--white);
   padding: 64px 0 48px;
+}
+
+.page-header h1 {
+  color: var(--white);
 }
 
 .page-header p {
