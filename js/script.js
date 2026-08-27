@@ -20,4 +20,27 @@ document.addEventListener("DOMContentLoaded", function () {
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+
+  var quoteForm = document.getElementById("quoteForm");
+  if (quoteForm) {
+    quoteForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = quoteForm.name.value.trim();
+      var contact = quoteForm.contact.value.trim();
+      var message = quoteForm.message.value.trim();
+
+      var subject = "Quote Request from " + name;
+      var body =
+        "Name: " + name +
+        "\nPhone/Email: " + contact +
+        "\n\nMessage:\n" + message;
+
+      var mailtoLink =
+        "mailto:mbesalesasuro@gmail.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      window.location.href = mailtoLink;
+    });
+  }
 });

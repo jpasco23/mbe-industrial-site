@@ -323,6 +323,48 @@ h3 { font-size: 1.25rem; }
   font-weight: 700;
 }
 
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--steel-light);
+}
+
+.form-field input,
+.form-field textarea {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: 2px solid var(--orange);
+  outline-offset: 1px;
+}
+
+.quote-form__submit {
+  width: 100%;
+  justify-content: center;
+  border: none;
+}
+
 /* Cards */
 .grid {
   display: grid;
