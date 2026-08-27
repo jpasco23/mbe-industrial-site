@@ -7,8 +7,8 @@
 <meta name="description" content="Get in touch with MBE Industrial for electrical automation, programming, instrumentation, termination services, and component supply." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=4" />
 </head>
 <body>
 
@@ -27,7 +27,7 @@
     </ul>
     <div class="nav__cta">
       <a href="tel:+639359817248" class="nav__phone">0935 981 7248</a>
-      <a href="contact.html" class="btn btn--primary">Get a Quote</a>
+      <a href="contact.html" class="btn btn--primary btn--sm">Get a Quote</a>
       <button class="nav__toggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -46,38 +46,61 @@
 
 <section class="section">
   <div class="container contact-grid">
-    <div class="contact-card">
+    <div class="contact-card reveal">
       <h3 style="margin-bottom:20px;">Contact Information</h3>
       <div class="contact-item">
-        <div class="contact-item__icon">P</div>
+        <div class="contact-item__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </div>
         <div>
           <strong>Phone</strong>
           <a href="tel:+639359817248">0935 981 7248</a>
         </div>
       </div>
       <div class="contact-item">
-        <div class="contact-item__icon">E</div>
+        <div class="contact-item__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </div>
         <div>
           <strong>Email</strong>
           <a href="mailto:mbesalesasuro@gmail.com">mbesalesasuro@gmail.com</a>
         </div>
       </div>
       <div class="contact-item">
-        <div class="contact-item__icon">L</div>
+        <div class="contact-item__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        </div>
         <div>
           <strong>Location</strong>
           <span>Philippines</span>
         </div>
       </div>
-    </div>
-
-    <div class="contact-card">
-      <h3 style="margin-bottom:12px;">Ready to Start?</h3>
-      <p style="color:var(--text-muted); margin-bottom:24px;">Call or email us directly with details about your electrical project or component needs, and we'll get back to you.</p>
-      <div class="btn-row">
+      <div class="btn-row" style="margin-top:24px;">
         <a href="tel:+639359817248" class="btn btn--primary">Call Now</a>
         <a href="mailto:mbesalesasuro@gmail.com" class="btn btn--outline-dark">Email Us</a>
       </div>
+    </div>
+
+    <div class="contact-form-card reveal">
+      <h3 style="margin-bottom:6px;">Send an Inquiry</h3>
+      <p style="color:var(--text-muted); margin-bottom:22px; font-size:0.95rem;">Share your project details and we'll get back to you directly.</p>
+      <form class="quote-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" required />
+          </div>
+          <div class="form-field">
+            <label for="cf-contact">Phone or Email</label>
+            <input type="text" id="cf-contact" name="contact" required />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="cf-message">Tell us about your project</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary quote-form__submit">Send Message</button>
+      </form>
     </div>
   </div>
 </section>
@@ -86,7 +109,10 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h4>MBE Industrial</h4>
+        <div class="footer-brand">
+          <span class="brand__mark">M</span>
+          MBE Industrial
+        </div>
         <p>Electrical automation, programming, instrumentation, termination services, and electrical component supply.</p>
       </div>
       <div>
@@ -96,6 +122,15 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="products.html">Products</a></li>
           <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li>Electrical Automation</li>
+          <li>Programming</li>
+          <li>Instrumentation</li>
+          <li>Termination</li>
         </ul>
       </div>
       <div>
@@ -113,6 +148,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=3"></script>
+<script src="js/script.js?v=4"></script>
 </body>
 </html>

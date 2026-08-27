@@ -21,26 +21,70 @@ document.addEventListener("DOMContentLoaded", function () {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  var quoteForm = document.getElementById("quoteForm");
-  if (quoteForm) {
-    quoteForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var name = quoteForm.name.value.trim();
-      var contact = quoteForm.contact.value.trim();
-      var message = quoteForm.message.value.trim();
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var onScroll = function () {
+      if (window.scrollY > 12) {
+        header.classList.add("is-scrolled");
+      } else {
+        header.classList.remove("is-scrolled");
+      }
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
 
-      var subject = "Quote Request from " + name;
+  if ("IntersectionObserver" in window) {
+    var revealEls = document.querySelectorAll(".reveal");
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    revealEls.forEach(function (el) {
+      observer.observe(el);
+    });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }
+
+  function wireMailtoForm(form, recipient, subjectPrefix) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = (form.name && form.name.value.trim()) || "";
+      var contact = (form.contact && form.contact.value.trim()) || "";
+      var message = (form.message && form.message.value.trim()) || "";
+
+      var subject = subjectPrefix + (name ? " from " + name : "");
       var body =
         "Name: " + name +
         "\nPhone/Email: " + contact +
         "\n\nMessage:\n" + message;
 
       var mailtoLink =
-        "mailto:mbesalesasuro@gmail.com" +
+        "mailto:" + recipient +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
 
       window.location.href = mailtoLink;
     });
+  }
+
+  var quoteForm = document.getElementById("quoteForm");
+  if (quoteForm) {
+    wireMailtoForm(quoteForm, "mbesalesasuro@gmail.com", "Quote Request");
+  }
+
+  var contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    wireMailtoForm(contactForm, "mbesalesasuro@gmail.com", "Contact Inquiry");
   }
 });
